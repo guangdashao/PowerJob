@@ -2,8 +2,6 @@ package tech.powerjob.server.core.alarm.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.cache.CacheBuilder;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -21,12 +19,8 @@ import tech.powerjob.server.extension.alarm.Alarmable;
 
 import javax.annotation.PostConstruct;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
-
-import static org.h2.command.dml.SetTypes.CACHE_SIZE;
 
 /**
  * http 回调报警
@@ -36,7 +30,6 @@ import static org.h2.command.dml.SetTypes.CACHE_SIZE;
  */
 @Slf4j
 @Service
-@RequiredArgsConstructor
 public class SmsAlarmService implements Alarmable {
 
     private static final String HTTP_PROTOCOL_PREFIX = "http://";
@@ -46,6 +39,11 @@ public class SmsAlarmService implements Alarmable {
     private String app_name;
     private String app_public_key;
     private String app_url;
+
+    public SmsAlarmService(Environment environment) {
+        this.environment = environment;
+    }
+
     @Override
     public void onFailed(Alarm alarm, List<AlarmTarget> targetUserList) {
         if(smsRsaUtils==null) return ;
