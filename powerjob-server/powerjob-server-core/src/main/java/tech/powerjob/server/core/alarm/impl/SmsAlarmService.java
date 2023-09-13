@@ -87,6 +87,11 @@ public class SmsAlarmService implements Alarmable {
         if (!app_url.startsWith(HTTP_PROTOCOL_PREFIX) && !app_url.startsWith(HTTPS_PROTOCOL_PREFIX)) {
             app_url = HTTP_PROTOCOL_PREFIX + app_url;
         }
+        if(app_url.endsWith("/")){
+            app_url=app_url+app_name;
+        }else {
+            app_url=app_url+"/"+app_name;
+        }
 
         smsRsaUtils=new SmsRsaUtils(new ObjectMapper(),app_public_key);
         log.info("[SMSAlarmService] init SMSAlarmService successfully!");
