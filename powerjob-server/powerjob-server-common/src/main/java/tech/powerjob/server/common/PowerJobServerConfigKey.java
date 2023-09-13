@@ -35,4 +35,11 @@ public class PowerJobServerConfigKey {
     public static final String DING_APP_KEY = "oms.alarm.ding.app-key";
     public static final String DING_APP_SECRET = "oms.alarm.ding.app-secret";
     public static final String DING_AGENT_ID = "oms.alarm.ding.agent-id";
+
+    /**
+     * 短信服务报警相关
+     */
+    public static final String SMS_APP_NAME= "oms.alarm.sms.app-name";
+    public static final String SMS_APP_PUBLIC_KEY= "oms.alarm.sms.app-public-key";
+    public static final String SMS_APP_URL = "oms.alarm.sms.app-url";
 }

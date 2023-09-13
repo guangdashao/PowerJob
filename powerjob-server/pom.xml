@@ -236,6 +236,14 @@
             <scope>test</scope>
         </dependency>
 
+<!--        短信 jwt-->
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+            <version>9.21</version>
+        </dependency>
+
+
         <!-- zip4j(Zip support) -->
         <dependency>
             <groupId>net.lingala.zip4j</groupId>
