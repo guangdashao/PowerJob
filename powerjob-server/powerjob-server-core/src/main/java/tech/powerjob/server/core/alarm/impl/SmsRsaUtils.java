@@ -23,14 +23,15 @@ import java.util.Date;
  **/
 @Slf4j
 public class SmsRsaUtils {
-    private final KeyFactory keyFactory;
+    private KeyFactory keyFactory;
     private ObjectMapper objectMapper;
     private RSAPublicKey publicKey;
 
     public SmsRsaUtils(ObjectMapper objectMapper, String publicKey) throws NoSuchAlgorithmException {
+        this.keyFactory = KeyFactory.getInstance("RSA");
         this.objectMapper = objectMapper;
         this.publicKey = publicKey(publicKey);
-        keyFactory = KeyFactory.getInstance("RSA");
+
     }
 
     /**
