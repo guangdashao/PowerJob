@@ -12,6 +12,7 @@ import org.springframework.util.CollectionUtils;
 import tech.powerjob.common.OmsConstant;
 import tech.powerjob.common.utils.HttpUtils;
 import tech.powerjob.server.common.PowerJobServerConfigKey;
+import tech.powerjob.server.core.alarm.dto.SmsJwtMessagePojo;
 import tech.powerjob.server.core.alarm.dto.SmsMessageEntity;
 import tech.powerjob.server.extension.alarm.Alarm;
 import tech.powerjob.server.extension.alarm.AlarmTarget;
@@ -63,9 +64,10 @@ public class SmsAlarmService implements Alarmable {
         // 自动添加协议头
         MediaType jsonType = MediaType.parse(OmsConstant.JSON_MEDIA_TYPE);
 
-        RequestBody requestBody = RequestBody.create(jsonType, JSONObject.toJSONString(smsMessageEntity));
 
         try {
+            SmsJwtMessagePojo smsJwtMessagePojo=new SmsJwtMessagePojo(smsRsaUtils.encodeToJwt(app_name,smsMessageEntity));
+            RequestBody requestBody = RequestBody.create(jsonType, JSONObject.toJSONString(smsJwtMessagePojo));
             String response = HttpUtils.post(app_url, requestBody);
             log.info("[SmsAlarmService] invoke sms[url={}] successfully, response is {}", app_url, response);
         }catch (Exception e) {
