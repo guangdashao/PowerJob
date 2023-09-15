@@ -7,11 +7,11 @@ copy /Y powerjob-worker-agent\target\*.jar powerjob-worker-agent\powerjob-agent.
 copy /Y powerjob-worker-samples\target\*.jar powerjob-worker-samples\powerjob-worker-samples.jar
 
 cd powerjob-server\docker
-docker build . -t harbor.ansteel.cn/lib/yujia-job:4.3.6-arm64 --platform linux/arm64
-docker build . -t harbor.ansteel.cn/lib/yujia-job:4.3.6-amd64
-docker push harbor.ansteel.cn/lib/yujia-job:4.3.6-arm64
-docker push harbor.ansteel.cn/lib/yujia-job:4.3.6-amd64
-docker manifest rm harbor.ansteel.cn/lib/yujia-job:4.3.6
-docker manifest create harbor.ansteel.cn/lib/yujia-job:4.3.6 harbor.ansteel.cn/lib/yujia-job:4.3.6-arm64 harbor.ansteel.cn/lib/yujia-job:4.3.6-amd64
-docker manifest push harbor.ansteel.cn/lib/yujia-job:4.3.6
+docker build . -t harbor.ansteel.cn/lib/yujia-job:4.3.6-1-arm64 --platform linux/arm64
+docker build . -t harbor.ansteel.cn/lib/yujia-job:4.3.6-1-amd64
+docker push harbor.ansteel.cn/lib/yujia-job:4.3.6-1-arm64
+docker push harbor.ansteel.cn/lib/yujia-job:4.3.6-1-amd64
+docker manifest rm harbor.ansteel.cn/lib/yujia-job:4.3.6-1
+docker manifest create harbor.ansteel.cn/lib/yujia-job:4.3.6-1 harbor.ansteel.cn/lib/yujia-job:4.3.6-1-arm64 harbor.ansteel.cn/lib/yujia-job:4.3.6-1-amd64
+docker manifest push harbor.ansteel.cn/lib/yujia-job:4.3.6-1
     
