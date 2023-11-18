@@ -126,6 +126,18 @@
                 <artifactId>commons-collections4</artifactId>
                 <version>${commons-collections4.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.dameng</groupId>
+                <artifactId>Dm8JdbcDriver18</artifactId>
+                <version>8.1.3.43</version>
+            </dependency>
+
+            <!-- dm8方言包，和驱动一个版本 -->
+            <dependency>
+                <groupId>com.dameng</groupId>
+                <artifactId>DmDialect-for-hibernate5.6</artifactId>
+                <version>8.1.3.43</version>
+            </dependency>
 
 
         </dependencies>
