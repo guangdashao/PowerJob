@@ -1,7 +1,8 @@
 # 基础镜像（支持 amd64 & arm64），based on Ubuntu 18.04.4 LTS
-FROM adoptopenjdk:8-jdk-hotspot
+FROM harbor.ansteel.cn/lib/eclipse-temurin:8-jdk-focal
 # 维护者
-MAINTAINER tengjiqi@gmail.com
+LABEL authors="psychenDa" LABEL="DmJdbcDriver18"
+
 # 下载并安装 maven
 RUN curl -O https://mirrors.aliyun.com/apache/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz
 RUN tar -zxvf apache-maven-3.9.4-bin.tar.gz && mv apache-maven-3.9.4 /opt/powerjob-maven && rm -rf apache-maven-3.9.4-bin.tar.gz
